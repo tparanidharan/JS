@@ -1,5 +1,4 @@
 var name='Parani'
 console.log(name);
-name=name+"dharan Thangavelu";
+name=name+"dharan Thangavelu1";
 console.log(name);
-alert("My full name is :"+name);
