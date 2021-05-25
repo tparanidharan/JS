@@ -1,3 +1,4 @@
 var name='Parani'
 console.log(name);
-name=name+"dharan Thangavelu"
+name=name+"dharan Thangavelu";
+console.log(name);
