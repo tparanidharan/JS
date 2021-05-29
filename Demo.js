@@ -26,6 +26,8 @@ function changeToEight(n) {
 
 var n = 7;
 
+[1,2,3,4].forEach(console.log);
+
 changeToEight(n);
 
 console.log(n);
