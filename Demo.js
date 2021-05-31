@@ -18,7 +18,7 @@ const bicycle = {
   }
 };
 
-console.log(bicycle['type']);
+console.log(bicycle['wheels']['width']);
 
 function changeToEight(n) {
   n = 8; // whatever n was, it is now 8... but only in this function!
@@ -27,7 +27,10 @@ function changeToEight(n) {
 var n = 7;
 
 [1,2,3,4].forEach(console.log);
-
+[1,2,3,4].map(console.log);
+[1,2,3,4].filter(function xx(){
+  return false;
+});
 changeToEight(n);
 
 console.log(n);
