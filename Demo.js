@@ -70,6 +70,7 @@ console.log(ocd.color);
 
 oco.p = 1; // create a simple property on normal obj
 ocn.p = 0; // create a simple property on "null" obj
+
 ocd.tender='red';
  console.log(oco); // {p: 1} -- Still seems normal
  console.log(ocn) ;// {p: 0} -- Still seems normal here too. BUT WAIT...
@@ -80,3 +81,4 @@ var fk = fruits.keys();
 for (x of fk) {
 console.log(fruits[x]);
 }
+
