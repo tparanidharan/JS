@@ -77,7 +77,6 @@ ocd.tender='red';
 
  var fruits = ["Banana", "Orange", "Apple", "Mango"];
 var fk = fruits.keys();
-
 for (x of fk) {
 console.log(fruits[x]);
 }
