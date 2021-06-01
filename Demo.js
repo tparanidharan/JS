@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-var name='Parani'
-console.log(name);
-name=name+"dharan Thangavelu1";
-console.log(name);
-// Pick a string. Your string can have any number of characters.
-var my_string = "G";
-
-// Calculate the ASCII value of the first character, i.e. the character at the position 0.
-var ASCII_value = my_string.charCodeAt(0);
-
-// Let us print
-console.log(ASCII_value);
-if('001' ==true)
-{
-  console.log("Hi");
-}
-else {
-  console.log("Hi222");
-}
-=======
 var donuts = ["glazed", "strawberry frosted", "powdered", "Boston creme"];
 
 donuts.pop();
@@ -55,4 +34,3 @@ var n = 7;
 changeToEight(n);
 
 console.log(n);
->>>>>>> c25e95266edb652062a623d6b41b073660f2261c
