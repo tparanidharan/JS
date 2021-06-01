@@ -58,16 +58,26 @@ var v=40;
   let b = 3;
 
 console.log(b);
-
+console.log(4== true);
 
 oco = Object.create( {} );   // create a normal object
 ocn = Object.create( null ); // create a "null" object
+let ocd= Object.create(bicycle);
 
- console.log(oco) // {} -- Seems normal
- console.log(ocn) // {} -- Seems normal here too, so far
+console.log(oco); // {} -- Seems normal
+console.log(ocn); // {} -- Seems normal here too, so far
+console.log(ocd.color);
 
 oco.p = 1; // create a simple property on normal obj
 ocn.p = 0; // create a simple property on "null" obj
+ocd.tender='red';
+ console.log(oco); // {p: 1} -- Still seems normal
+ console.log(ocn) ;// {p: 0} -- Still seems normal here too. BUT WAIT...
+ console.log(ocd);
 
- console.log(oco) // {p: 1} -- Still seems normal
- console.log(ocn) // {p: 0} -- Still seems normal here too. BUT WAIT...
+ var fruits = ["Banana", "Orange", "Apple", "Mango"];
+var fk = fruits.keys();
+
+for (x of fk) {
+console.log(fruits[x]);
+}
