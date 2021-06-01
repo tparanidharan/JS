@@ -71,3 +71,4 @@ ocn.p = 0; // create a simple property on "null" obj
 
  console.log(oco) // {p: 1} -- Still seems normal
  console.log(ocn) // {p: 0} -- Still seems normal here too. BUT WAIT...
+
