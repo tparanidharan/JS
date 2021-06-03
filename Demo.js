@@ -26,6 +26,11 @@ function changeToEight(n) {
   n = 8; // whatever n was, it is now 8... but only in this function!
   console.log(donut.length);
   console.log(donuts.length);
+
+  function number0()
+  {console.log('Inside number0 fn');return 0;}
+
+  return number0();
 }
 
 var n = 7;
@@ -35,8 +40,9 @@ var n = 7;
 console.log([1,2,3,4].filter(function xx(num){
   return num%2 ===0 ? false: true;
 }));
-changeToEight(n);
+const temp =changeToEight(n);
 
+console.log('temp: '+temp );
 console.log(n);
 
 //remove duplicate element in an array
@@ -81,3 +87,16 @@ var fk = fruits.keys();
 for (x of fk) {
 console.log(fruits[x]);
 }
+
+
+const dog = {
+  bark: function () {
+    console.log('Woof!');
+  },
+  barkTwice: function () {
+    this.bark();
+    this.bark();
+  }
+};
+
+dog.barkTwice();
