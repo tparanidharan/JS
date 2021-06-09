@@ -88,10 +88,10 @@ for (x of fk) {
 console.log(fruits[x]);
 }
 
-
-const dog = {
+const dog1 = {
+  name: 'tommy',
   bark: function () {
-    console.log('Woof!');
+    console.log('Woof! from '+this.name);
   },
   barkTwice: function () {
     this.bark();
@@ -99,4 +99,209 @@ const dog = {
   }
 };
 
-dog.barkTwice();
+dog1.barkTwice();
+
+const mockingbird = {
+  title: 'To Kill a Mockingbird',
+  describe: function (name) {
+    if(this.title != undefined)
+    console.log(`${this.title} is a classic novel of ${name}`);
+  }
+};
+
+const pride = {
+  title: 'Pride and Prejudice'
+};
+
+mockingbird.describe.call(pride,'Parani');
+mockingbird.describe.apply(pride,['Kavitha']);
+
+
+function invokeTwice(cb) {
+ cb();
+ cb();
+}
+
+const dog = {
+age: 5,
+growOneYear: function () {
+  this.age += 1;
+}
+};
+
+invokeTwice(dog.growOneYear.bind(dog));
+
+console.log(dog.age);
+
+function Dalmatian (name) {
+  this.name = name;
+}
+
+Dalmatian.prototype.bark = function() {
+  console.log(`${this.name} barks!`);
+};
+
+function Car1(make='honda', model='accord' ){
+this.make=make;
+this.model = model;
+}
+let tommy = new Dalmatian('Tommy');
+
+tommy.bark();
+Car1.prototype.switchOn = function(){
+console.log('Car turned on!'+ this.model);
+};
+let civic = {ji: "dfsdf",ko: "sdfsdf"};
+Dalmatian.prototype = {sji: "dfsdf",wko: "sdfsdf"};
+let jimmy = new Dalmatian();
+//jimmy.switchOn();
+
+console.log("-----------------------------------");
+console.log(Object.getOwnPropertyNames(jimmy));
+console.log(jimmy.make);
+console.log(civic.isPrototypeOf(jimmy));
+
+function Hamster() {
+  this.hasFur = true;
+}
+
+let waffle = new Hamster();
+let pancake = new Hamster();
+Hamster.prototype.eat = function () {
+  console.log('Chomp chomp chomp!');
+};
+
+waffle.eat();
+// 'Chomp chomp chomp!'
+
+pancake.eat();
+// 'Chomp chomp chomp!'
+Hamster.prototype = {
+  isHungry: false,
+  color: 'brown'
+};
+console.log(waffle.color);
+// undefined
+
+waffle.eat();
+// 'Chomp chomp chomp!'
+
+console.log(pancake.isHungry);
+// undefined
+const muffin = new Hamster();
+
+//console.log(muffin.hasFur());
+//muffin.eat();
+// TypeError: muffin.eat and muffin.hasFur is not a function
+
+console.log(muffin.isHungry);
+// false
+
+console.log(muffin.color);
+
+
+const bear = {
+  claws: true,
+  diet: 'carnivore'
+};
+function PolarBear() {
+  // ...
+};
+
+PolarBear.prototype = bear;
+const snowball = new PolarBear();
+
+snowball.color = 'white';
+snowball.favoriteDrink = 'cola';
+
+
+function Car (color, year=1988) {
+  this.color = color;
+  this.year = year;
+
+}
+Car.reverse = function(){ return 'reversed!';};
+Car.prototype.drive = function () {
+  console.log('Vroom vroom!');
+};
+
+const car = new Car('silver');
+console.log(Car.reverse());
+console.log(Object.getOwnPropertyNames(Car));
+function doSomething(){}
+console.log( doSomething.prototype );
+//  It does not matter how you declare the function, a
+//  function in JavaScript will always have a default
+//  prototype property.
+//  (Ps: There is one exception that arrow function doesn't have a default prototype property)
+var doSomething = function(){};
+console.log( doSomething.prototype );
+let f = function () {
+   this.a = 1;
+   this.b = 2;
+}
+let o = new f(); // {a: 1, b: 2}
+f.d=30;
+f.prototype.b = 3;
+f.prototype.c = 4;
+var o1 = {a: 1};
+console.log(Object.getOwnPropertyNames(o1));
+console.log(f.prototype);
+
+function foo1(){console.log(new Error().stack);}
+foo1.prototype = {
+  foo_prop: "foo val"
+
+};
+function bar1(){
+
+}
+var proto = Object.create(
+  foo1.prototype
+);
+proto.bar_prop = "bar val";
+bar1.prototype = proto;
+var inst = new bar1;
+console.log(inst.foo_prop);
+console.log(inst.bar_prop);
+
+const t = [1, -1, 3]
+
+t.push(5)
+
+console.log(t.length) // 4 is printed
+console.log(t[1])     // -1 is printed
+
+t.forEach((value,ind,arr) => {
+  console.log(value)  // numbers 1, -1, 3, 5 are printed, each to own line
+})
+
+var num=3;
+switch (num)
+{
+  case 3:
+    console.log("less than 3");
+    break;
+  case 4:
+  console.log("adadas");
+  break;
+  default:
+    console.log("default");
+}
+
+function curry(fn) {
+  const args = []
+  return function inner(arg) {
+    console.log("Args & FN length",args.length , fn.length) 
+    if(args.length === fn.length) return fn(...args)
+    args.push(arg)
+    return inner
+  }
+}
+
+function add(a, b) {
+  return a + b
+}
+
+const curriedAdd = curry(add)
+console.log(curriedAdd(2)(3)()) // 5
